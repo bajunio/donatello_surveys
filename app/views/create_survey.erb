@@ -1,13 +1,8 @@
-<%= erb :header %>
   <div class="main-content-container">
-    <form>
-      <label for="title">Survey Title</label>
-      <input type="text" placeholder="Survey Title..." name="title">
+    <form action='/surveys' method="post">
+      <h3>Survey Title</h3>
+      <input type="text" placeholder="Survey Title..." name="name">
       <br><br>
-      <label for="new-question">Add a New Question</label>
-      <textarea rows="2" cols="50" name="new-question" placeholder="Add a new question..."></textarea>
-      <br>
-      <input type="submit" value="Add Question">
+      <input type="submit" value="CREATE ME MOFO">
     </form>
   </div>
-</div>

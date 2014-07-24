@@ -3,7 +3,8 @@ class CreateChoices < ActiveRecord::Migration
 	def change
 		create_table :choices do |t|
 			t.string :choice
-			t.belongs_to :questions
+			t.integer :response_count, default: 0
+			t.belongs_to :question
 
 			t.timestamps
 		end

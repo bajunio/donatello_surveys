@@ -15,19 +15,24 @@ header{
 	margin-bottom: 1%;
 }
 
-#survey-list {
+.main-content-container {
+	padding: 1%;
 	margin: 0 auto;
 	width: 50%;
 	border: 1px solid black;
 }
 
-#survey-list ul{
+.main-content-container ul{
 	list-style-type: none;
 }
-#survey-list li{
+.main-content-container li{
 	padding-right: 2%;
 }
 
-#survey-list button{
+.main-content-container button{
 	float:right;
+}
+
+textarea {
+    resize: none;
 }

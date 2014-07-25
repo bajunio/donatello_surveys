@@ -1,5 +1,5 @@
 <div class="main-content-container">
-  <form >
+  <form method="post" action="/surveys/<%= @survey.id %>/questions">
     <label for="edit-name" class="survey-title"><%=@survey.name%> Survey</label>
     <!-- future feature -->
     <!-- <input type="submit" value="Edit survey name" id="edit-name"> -->

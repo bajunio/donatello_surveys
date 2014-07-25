@@ -5,6 +5,7 @@
 
 header{
 	text-align: center;
+	color: purple;
 }
 
 #create-new-survey{
@@ -35,4 +36,12 @@ header{
 
 textarea {
     resize: none;
+}
+.survey-title{
+	font-size: x-large;
+	font-weight: bold;
+}
+
+#edit-name{
+	margin-left: 5%;
 }

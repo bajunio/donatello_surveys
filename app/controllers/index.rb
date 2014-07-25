@@ -7,10 +7,12 @@ get '/surveys/new' do
 end
 
 post '/surveys' do
-  Survey.create(params)
-  redirect '/surveys/:id/edit'
+  survey = Survey.create(params)
+  redirect "/surveys/#{survey.id}/edit"
 end
 
 get '/surveys/:id/edit' do
+  @survey = Survey.find(params[:id])
+  @questions = @survey.questions
   erb :edit_survey
 end

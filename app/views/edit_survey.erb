@@ -10,8 +10,18 @@
     <br><br>
     <input type="text" name="choice2" placeholder="Answer 2">
     <br><br>
-    <input type="submit" value="Add Question!">
+    <input type="submit" value="Add Question!" class="add-question" id="<%=@survey.id%>">
   </form>
   <a href="/"><button>Go back home</button></a>
 </div>
+
 <%= erb :_survey_contents %>
+
+<!-- <div class="question-block" id="template">
+  <li></li>
+  <ol>
+    <li></li>
+    <li></li>
+  </ol>
+</div>
+ -->

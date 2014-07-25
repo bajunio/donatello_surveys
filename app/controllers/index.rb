@@ -30,6 +30,8 @@ end
 
 post '/surveys/:id/questions' do
 	# params (id, question, answer[0], answer[1])
+	p "SHOW ME THE PARAMS"
+	p params
 	survey = Survey.find(params[:id])
 	survey.questions << Question.new(question: params[:new_question])
 
@@ -38,7 +40,8 @@ post '/surveys/:id/questions' do
 	# end
 	survey.questions.last.choices << Choice.new(choice: params[:choice1])
 	survey.questions.last.choices << Choice.new(choice: params[:choice2])
-	redirect "/surveys/#{params[:id]}/edit"
+	params.to_json
+	# redirect "/surveys/#{params[:id]}/edit"
 end
 
 post '/test' do

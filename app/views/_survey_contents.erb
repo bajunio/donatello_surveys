@@ -1,14 +1,17 @@
 <div class="main-content-container">
   <h3>Current Questions</h3>
-  <ol>
+  <ol class="current-question">
+    <div class="question-block">
     <% @questions.each do |question| %>
-    <li><%= question.question %></li>
-    <ol>
-      <% question.choices.each do |answer|  %>
-      <li><%= answer.choice %></li>
-      <% end %>
-    </ol>
+      <li><%= question.question %></li>
+      <ol>
+        <% question.choices.each do |answer|  %>
+        <div></div><li><%=answer.choice %></li>
+        <% end %>
+      </ol>
     <% end %>
+    </div>
   </ol>
-  <input type="submit" value="update survey">
+
+  <!-- <input type="submit" value="update survey"> -->
 </div>

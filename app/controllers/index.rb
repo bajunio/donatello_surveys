@@ -1,4 +1,5 @@
 get '/' do
+  @surveys = Survey.all
 	erb :index
 end
 
@@ -15,4 +16,10 @@ get '/surveys/:id/edit' do
   @survey = Survey.find(params[:id])
   @questions = @survey.questions
   erb :edit_survey
+end
+
+get '/surveys/:id' do
+  @survey=Survey.find(params[:id])
+  @questions = @survey.questions
+  erb :take_survey
 end

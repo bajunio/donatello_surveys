@@ -1,0 +1,18 @@
+<label for="edit-name" class="survey-title"><%=@survey.name%> Survey</label>
+<br>
+<div class="main-content-container">
+  <form action=>
+  <h3>Current Questions</h3>
+  <ol>
+    <% @questions.each do |question| %>
+    <li><%= question.question %></li>
+    <ol>
+      <% question.choices.each do |answer|  %>
+      <ul><input type="radio" name="<%= question.id%>"><%= answer.choice %></ul>
+      <% end %>
+    </ol>
+    <% end %>
+  </ol>
+  <input type="submit" value="Submit your answsers!">
+  </form>
+</div>

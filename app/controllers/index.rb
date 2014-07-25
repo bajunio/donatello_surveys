@@ -40,3 +40,11 @@ post '/surveys/:id/questions' do
 	survey.questions.last.choices << Choice.new(choice: params[:choice2])
 	redirect "/surveys/#{params[:id]}/edit"
 end
+
+post '/test' do
+	# binding.pry
+	params.each do |question_id, answer|
+		Question.find(question_id).find_choice(answer).increment_count
+	end
+	# p params {"22" => "yes", "23" => "you"}
+end

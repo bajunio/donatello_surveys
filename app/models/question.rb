@@ -9,4 +9,6 @@ class Question < ActiveRecord::Base
 	def total_responses
 		self.choices.map(&:response_count).reduce(:+)
 	end
+
+
 end

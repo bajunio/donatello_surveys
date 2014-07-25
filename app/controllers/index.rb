@@ -28,23 +28,30 @@ get '/surveys/:id' do
   erb :take_survey
 end
 
-post '/surveys/:id/questions' do
-	# params (id, question, answer[0], answer[1])
-	survey = Survey.find(params[:id])
-	survey.questions << Question.new(question: params[:new_question])
-
-	# params[:answer].each do |choice|
-	# 	survey.questions.last.choices << Choice.new(choice: choice)
-	# end
-	survey.questions.last.choices << Choice.new(choice: params[:choice1])
-	survey.questions.last.choices << Choice.new(choice: params[:choice2])
-	redirect "/surveys/#{params[:id]}/edit"
-end
-
-post '/test' do
-	# binding.pry
-	params.each do |question_id, answer|
+post '/surveys/:id' do
+  responses = params.select{ |key, value| !key.to_i.zero? }
+	responses.each do |question_id, answer|
 		Question.find(question_id).find_choice(answer).increment_count
 	end
-	# p params {"22" => "yes", "23" => "you"}
+	redirect '/'
+end
+
+post '/surveys/:id/questions' do
+  # params (id, question, answer[0], answer[1])
+  survey = Survey.find(params[:id])
+  survey.questions << Question.new(question: params[:new_question])
+
+  # params[:answer].each do |choice|
+  #   survey.questions.last.choices << Choice.new(choice: choice)
+  # end
+  survey.questions.last.choices << Choice.new(choice: params[:choice1])
+  survey.questions.last.choices << Choice.new(choice: params[:choice2])
+  redirect "/surveys/#{params[:id]}/edit"
+end
+
+
+get '/surveys/:id/results' do
+  @survey=Survey.find(params[:id])
+  @questions = @survey.questions
+  erb :survey_results
 end

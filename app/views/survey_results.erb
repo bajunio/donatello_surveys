@@ -1,0 +1,16 @@
+<div class="main-content-container">
+  <h3>Results of <%=@survey.name%> Survey</h3>
+  <ol>
+    <% @questions.each do |question| %>
+    <li><%= question.question %></li>
+    <ol>
+      <% question.choices.each do |answer|  %>
+      <ul><%= answer.choice %>: <%= answer.response_count %> (<%= answer.percent_of_total_responses %>%)</ul>
+        <div class="chart"></div>
+      <% end %>
+    </ol>
+    <% end %>
+  </ol>
+  <a href="/"><button>Go back home!</button></a>
+  </form>
+</div>

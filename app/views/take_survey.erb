@@ -1,7 +1,7 @@
 <label for="edit-name" class="survey-title"><%=@survey.name%> Survey</label>
 <br>
 <div class="main-content-container">
-  <form method='post' action='/test'>
+  <form method='post' action='/surveys/<%= @survey.id %>'>
   <h3>Current Questions</h3>
   <ol>
     <% @questions.each do |question| %>
